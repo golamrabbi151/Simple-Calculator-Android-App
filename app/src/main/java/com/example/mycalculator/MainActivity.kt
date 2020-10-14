@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
                         if (prefix.isNotEmpty()){
                             one = prefix + one
                         }
-                        tvInput.text = (one.toDouble() - two.toDouble()).toString()
+                        tvInput.text = removeZeroAfterDot((one.toDouble() - two.toDouble()).toString())
                     }
                     tvValue.contains("+") -> {
                         var setSplit = tvValue.split("+")
@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
                         if (prefix.isNotEmpty()){
                             one = prefix + one
                         }
-                        tvInput.text = (one.toDouble() + two.toDouble()).toString()
+                        tvInput.text = removeZeroAfterDot((one.toDouble() + two.toDouble()).toString())
                     }
                     tvValue.contains("*") -> {
                         var setSplit = tvValue.split("*")
@@ -92,7 +92,7 @@ class MainActivity : AppCompatActivity() {
                         if (prefix.isNotEmpty()){
                             one = prefix + one
                         }
-                        tvInput.text = (one.toDouble() * two.toDouble()).toString()
+                        tvInput.text = removeZeroAfterDot((one.toDouble() * two.toDouble()).toString())
                     }
                     tvValue.contains("/") -> {
                         var setSplit = tvValue.split("/")
@@ -101,7 +101,7 @@ class MainActivity : AppCompatActivity() {
                         if (prefix.isNotEmpty()){
                             one = prefix + one
                         }
-                        tvInput.text = (one.toDouble() / two.toDouble()).toString()
+                        tvInput.text = removeZeroAfterDot((one.toDouble() / two.toDouble()).toString())
                     }
                 }
 
@@ -150,5 +150,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun removeZeroAfterDot(result: String): String {
+        var value = result
+        if (value.contains(".0"))
+            value = value.substring(0,value.length -2)
+            return value
+
+
+    }
 
 }

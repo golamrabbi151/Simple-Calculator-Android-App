@@ -13,6 +13,7 @@
         android:layout_height="180dp"
         android:background="#efefef"
         android:textSize="48sp"
+        android:gravity="right|bottom|center_horizontal"
         android:maxLength="12"
         />
     <!-- Row_one   -->
